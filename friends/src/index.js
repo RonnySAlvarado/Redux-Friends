@@ -6,17 +6,16 @@ import { applyMiddleware, createStore } from "redux";
 import logger from "redux-logger";
 import thunk from "redux-thunk";
 import { Provider } from "react-redux";
-
-//rootReducer is empty for now just to get the page to render. Will build it out in the actual reducer.js file later
-const rootReducer = function() {
-  return {};
-};
+import { BrowserRouter as Router } from "react-router-dom";
+import rootReducer from "../src/reducers/reducers";
 
 const store = createStore(rootReducer, applyMiddleware(logger, thunk));
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </Provider>,
   document.getElementById("root")
 );
