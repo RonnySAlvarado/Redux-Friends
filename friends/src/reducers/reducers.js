@@ -7,7 +7,8 @@ const initialState = {
   loggingIn: false,
   savingFriends: false,
   updatingFriend: false,
-  error: null
+  error: null,
+  token: localStorage.getItem("token")
 };
 
 const rootReducer = (state = initialState, action) => {
