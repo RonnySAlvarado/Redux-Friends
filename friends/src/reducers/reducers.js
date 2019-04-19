@@ -1,4 +1,10 @@
-import { LOGIN_START, LOGIN_SUCCESS, LOGIN_FAILURE } from "../actions/actions";
+import {
+  LOGIN_START,
+  LOGIN_SUCCESS,
+  LOGIN_FAILURE,
+  GET_DATA_START,
+  GET_DATA_SUCCESS
+} from "../actions/actions";
 
 const initialState = {
   deletingFriend: false,
@@ -33,6 +39,17 @@ const rootReducer = (state = initialState, action) => {
         loggingIn: false
       };
     }
+    case GET_DATA_START:
+      return {
+        ...state,
+        fetchingFriends: true
+      };
+    case GET_DATA_SUCCESS:
+      return {
+        ...state,
+        fetchingFriends: false,
+        friends: action.payload
+      };
     default:
       return state;
   }
